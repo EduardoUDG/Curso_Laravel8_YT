@@ -22,7 +22,9 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->sentence(),
+            'descripcion' => $this->faker->paragraph(),
+            'categoria' => $this->faker->randomElement(['Desarrollo web', 'Diseño web'])
         ];
     }
 }
