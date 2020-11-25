@@ -42,7 +42,7 @@ class StoreCurso extends FormRequest
     public function messages()
     {
         return [
-            'descripcion.required' => 'Debe ingresar una descripcion del curso'
+            'descripcion.min' => 'ingresa mas de 10 caracteres'
         ];
     }
 
