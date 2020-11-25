@@ -11,7 +11,7 @@ class CursoController extends Controller
 
         /* llamamos modelo "Curso", en la varible cursos tenemos almacenado
         todos los cursos de la bd*/
-        $cursos = Curso::all();
+        $cursos = Curso::paginate();
 
         return view('cursos.index', compact('cursos'));
     }
@@ -20,7 +20,10 @@ class CursoController extends Controller
         return view('cursos.create');
     }
 
-    public function show($curso){
+    public function show($id){
+
+        $curso = Curso::find($id);
+
         return view('cursos.show', compact('curso'));
     }
 }
