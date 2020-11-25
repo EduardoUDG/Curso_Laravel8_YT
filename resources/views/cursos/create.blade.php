@@ -6,6 +6,7 @@
 @section('content')
 
     <h1>En esta seccion se crearan cursos</h1>
+    <a href="{{ route('cursos.index') }}">Regresar</a>
 
     <form action="{{ route('cursos.store') }}" method="POST">
         @csrf
@@ -15,21 +16,39 @@
             <br>
             <input type="text" name="name">
         </label>
+        @error('name')
+            <br>
+            <small>*{{ $message }}</small>
+            <br>
+        @enderror
         <br>
+
+
 
         <label for="">
             Description
             <br>
             <textarea name="descripcion" cols="30" rows="10"></textarea>
         </label>
+        @error('descripcion')
         <br>
+        <small>*{{ $message }}</small>
+        <br>
+        @enderror
+        <br>
+
+
 
         <label for="">
             Categoria:
             <br>
             <input type="text" name="categoria">
         </label>
-
+        @error('categoria')
+        <br>
+        <small>*{{ $message }}</small>
+        <br>
+        @enderror
         <br>
         <button type="submit">Enviar formulario</button>
     </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -22,6 +23,14 @@ class CursoController extends Controller
 
     /* Todo lo que se mandara almacenar, quedara guardado en request */
     public function store(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+        ]);
+
+
 
         $curso = new Curso();
 
