@@ -21,4 +21,9 @@ class Curso extends Model
         y en guarded ignora los archivos que no queremos tomar
     */
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
