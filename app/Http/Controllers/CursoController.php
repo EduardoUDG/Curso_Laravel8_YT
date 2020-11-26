@@ -69,5 +69,14 @@ class CursoController extends Controller
         return redirect()->route('cursos.show', $curso);
 
     }
+
+    /* en los parametros de destroy pasamos una instancia del modelo "Curso" y luego
+        la variabl que declaramos en "Route"
+    */
+    public function destroy(Curso $curso){
+        $curso->delete();
+
+        return redirect()->route('cursos.index');
+    }
 }
 
